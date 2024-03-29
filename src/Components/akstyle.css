@@ -1,0 +1,8 @@
+/*  define css class for h1 with name akClass with props color, font-size, padding and background color */
+
+.akClass {
+  color: yellow;
+  font-size: 50px;
+  padding: 20px;
+  background-color: red;
+}
