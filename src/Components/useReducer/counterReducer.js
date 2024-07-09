@@ -4,9 +4,9 @@
 
 // define the initial state of the counter
 
-const initialState = { count: 0 };
+const initialState = { count: 0 }; //initial state of the counter
 
-
+// reducer function to handle the actions possible on the state
 const counterReducer = (state, action) => {
     switch (action.type) {
         case "increment":

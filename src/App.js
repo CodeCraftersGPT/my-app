@@ -35,9 +35,11 @@ import ProtectedComponentWrapper from './Components/Routing/ProtectedRoute';
 import Counter from './Components/useReducer/Counter';
 import AppProvider from './Components/useReducer/AppContext';
 import ProductList from './Components/useReducer/ProductList';
-import Cart from './Components/useReducer/Cart';
+import Cart from './Components/HOC/Cart';
 import Order from './Components/HOC/Order';
 import ParentComponent from './Components/useCallBackMemo/ParentComponent';
+import Product from './Components/HOC/Product';
+
 
 
 
@@ -54,13 +56,25 @@ function App() {
 
   return (
     <div className="App">
-      <ParentComponent />
-      {/* <Order message="this is new Order"/> */}
 
-      {/* <AppProvider >
+      <AppProvider>
+        <ProductList />
+        <Cart />
+      </AppProvider>
+
+    {/* <AppProvider >
         <ProductList/>
         <Cart/>
       </AppProvider> */}
+
+      {/* <ChildComponent theme={theme}/> */}
+      {/* <ParentComponent /> */}
+      {/* <Order message="this is new Order"/>
+      <Cart message="this is new Cart"/>
+      <Product message="this is new Product"/> */}
+
+
+      {/*  
 
       {/* <Router>
         <Navigation />
@@ -95,8 +109,8 @@ function App() {
           {/* use the protected route for the cart component */}
           {/* <ProtectedRoute path="/carts" element={<Cart/>} isAuthenticated={isUserAuthenticated} /> */}
           {/* <Route path="/carts" element={<Cart/>} /> */}
-
-      {/* <ThemeProvider>
+{/* 
+      <ThemeProvider>
         <DashBoard2/>
       </ThemeProvider> */}
 
@@ -104,8 +118,9 @@ function App() {
 
       {/* <ThemeContext.Provider value={theme}>
         <UserContext.Provider value={name}>
-        <DashBoardComponent />
+          <DashBoardComponent />
         </UserContext.Provider>
+        <DashBoardComponent />
       </ThemeContext.Provider> */}
       {/* <ChildComponent theme={theme}/> */}
       {/* <PostList /> */}

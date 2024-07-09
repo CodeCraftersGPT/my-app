@@ -3,11 +3,19 @@
 
 // Path: my-app/src/Components/ThemeContext/ChildComponent1.js
 
-import React from "react";
+import React, { useContext } from "react";
 
 import GrandChildComponent1 from "./GrandChildComponent1";
+import ThemeContext from "./ThemeContext";
+import UserContext from "./UserContext";
+
+
 
 function ChildComponent1(){
+
+    const theme = useContext(ThemeContext);
+    const user = useContext(UserContext);
+    
 
     return(
         <div>

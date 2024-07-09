@@ -6,12 +6,20 @@
 // display cart items in the table format
 // have removecart button to remove the item from the cart. dispatch removecart
 
-import React, { useContext } from "react";
+import React, { useContext,useReducer } from "react";
 import { AppContext } from "./AppContext";
 
+// import reducer,{initialState} from "./reducer";
+
+// import cartstate and cartreducer from the cartreducer file
+
+// import { cartState, cartReducer } from "./cartReducer";
+
+
 const Cart = () => {
-    const { state, dispatch } = useContext(AppContext);
-    const { cart, products } = state;
+
+    const { cartstate,productstate, cartdispatch } = useContext(AppContext);
+   // const { cart, products } = cartstate;
 
     return (
         <div>
@@ -25,8 +33,8 @@ const Cart = () => {
         </tr>
         </thead>
         <tbody>
-        {cart.map((item) => {
-            const product = products.find((product) => product.id === item.id);
+        {cartstate.map((item) => {
+            const product = productstate.find((product) => product.id === item.id);
             return (
                 <tr key={item.id}>
                 <td>{product.name}</td>

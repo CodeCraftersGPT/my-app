@@ -17,9 +17,19 @@ function ConditionalRendering(){
         setUserName(event.target.value);
     }
 
+    function backEndCall(){
+        try {
+            const response = await axios.get('https://api.example.com/data');
+            setData(response.data);
+          } catch (err) {
+            setError(err.message);
+          }
+    }
+
     return (
         <>
-            {isLoggedIn ? 
+            {
+            isLoggedIn ? 
             <div>
                 <h1>Welcome {userName}</h1>
                 <button onClick={logout}>Logout</button>

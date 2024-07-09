@@ -7,7 +7,7 @@ function Counter() {
     const [count, setCount] = useState(10);
     return (
         <div>
-            <h1 data-testid="counter">{count}</h1>
+            <h1 data-testid="counter">count : {count}</h1>
             <button onClick={() => setCount(count + 1)}>Increment</button>
         </div>
     );

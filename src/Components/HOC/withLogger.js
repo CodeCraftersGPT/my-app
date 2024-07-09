@@ -21,7 +21,7 @@ const withLogger = (WrappedComponent) => {
         console.log("Component is Updated");
         });
     
-        return <WrappedComponent />;
+        return <WrappedComponent {...props}/>;
     };
     }
 

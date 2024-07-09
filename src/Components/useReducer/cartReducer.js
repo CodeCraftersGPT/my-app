@@ -1,27 +1,14 @@
-// define the initial state of the App which contains the products and the cart
+// define cart reducer function with the initial state and the action types
 
-const initialState = {
-    products: [
-        { id: 1, name: "Laptop", price: 1000, stock: 10 },
-        { id: 2, name: "Mobile", price: 500, stock: 15 },
-        { id: 3, name: "Headset", price: 100, stock: 20 },
-        { id: 4, name: "Mouse", price: 50, stock: 25 },
-        { id: 5, name: "Keyboard", price: 150, stock: 30 },
-    ],
-    cart: [
-        { id: 1,  quantity: 5 },
-        { id: 2,  quantity: 6 },
-        { id: 3, quantity: 4},
-    ],
+const cartState = {
+    cart: [],
 };
 
-// define the reducer function for the products and the cart for adding to the cart, removing from the cart 
+// define reducer for additemtocart and removeitemfromcart
 
-function reducer(state, action) {
+const cartReducer = (state, action) => {
     switch (action.type) {
         case "AddItemToCart":
-            // if the item is already in the cart then increase the quantity
-            // else add the item to the cart
             const itemInCart = state.cart.find((item) => item.id === action.id);
             if (itemInCart) {
                 return {
@@ -37,10 +24,7 @@ function reducer(state, action) {
                 ...state,
                 cart: [...state.cart, { id: action.id, quantity: 1 }],
             };
-         
         case "RemoveItemFromCart":
-            // if the quantity is 1 then remove the item from the cart
-            // else decrease the quantity
             const itemInCart1 = state.cart.find((item) => item.id === action.id);
             if (itemInCart1.quantity === 1) {
                 return {
@@ -56,14 +40,13 @@ function reducer(state, action) {
                         : item
                 ),
             };
-
-         
         default:
             return state;
     }
-   
 }
 
-export default reducer;
+export { cartState, cartReducer };
 
-export { initialState };
+
+
+
